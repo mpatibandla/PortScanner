@@ -1,0 +1,32 @@
+The project4.tar file contains 3 files.
+portScanner.c 
+functions.c
+ struc.h
+
+portScanner.c is the main c program containing the entire code and this contains the main() function as well as the portscanner function.
+The main function includes all the cases where the options are checked.
+The command line arguments are verified and the required action is taken.
+The various options include --port,--ip etc.
+All the action required for each command line is already given in the pdf.
+The various function involved are:
+service()
+portscanner()
+checksum()
+respondtimeout()
+
+service function is used to check the various services such as WHO IS,SSH,HTTP,POP,IMAP etc.
+The service function is written in functions.c file and it checks for the port number in the command line.
+Based on the port number, it gives the output that the specific service port is open or closed or filtered etc.
+
+portscanner()
+portscanner function contains the main scanning function.
+The entire port numbers with starting port and ending port are given as input as a part of the structure portiphead to the portscanner function. This function starts at the first port and then scans all the ports till the last port based on various services.
+If the tcp flag is set, then all the types of scans are performed. Otherwise, the required scan by the user is specified in the command line and performed.
+
+checksum()
+checksum is used to provide checksum for the snet and received tcp and ip headers.
+It tells whether the header has any errors or not.
+
+respondtimeout()
+Timeout is used in the service function to check for the timeout of the services such as WHOIS. If the response is not obtained after a specified timeout value,then the port can be supposed to be closed.
+
